@@ -3,6 +3,7 @@
 autoinstall:
   version: 1
   locale: en_US
+  timezone: "Europe/London"
   keyboard:
     layout: us
   storage:
