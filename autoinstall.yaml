@@ -79,7 +79,3 @@ autoinstall:
     - curtin in-target --target=/target -- python3 -m pip install --upgrade pwntools
     - curtin in-target --target=/target -- bash -c 'su - user -c "curl -fsSL http://autoinstall.6l.dk/dotfiles -o /tmp/dotfiles.zip && unzip -o /tmp/dotfiles.zip -d ~/"'
     - curtin in-target --target=/target -- bash -c 'echo "user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers'
-
-
-  error-commands:
-    - tar c /var/log/installer | nc 192.168.0.1 1000
