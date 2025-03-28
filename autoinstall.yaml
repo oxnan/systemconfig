@@ -1,13 +1,9 @@
-#Main-CTF config
+#cloud-config
 autoinstall:
   version: 1
   locale: en_US
   keyboard:
     layout: us
-  apt:
-  sources:
-    brave:
-      source: "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"
   storage:
     layout:
       name: lvm
@@ -73,6 +69,7 @@ autoinstall:
     - curtin in-target --target=/target -- bash -c "git clone --depth 1 https://github.com/junegunn/fzf.git /opt/fzf"
     - curtin in-target --target=/target -- bash -c "/opt/fzf/install --all"
     - curtin in-target --target=/target -- bash -c 'curl -fsSL https://brave.com/signing-key.asc | gpg --dearmor -o /usr/share/keyrings/brave-browser-archive-keyring.gpg'
+    - curtin in-target --target=/target -- bash -c 'echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" > /etc/apt/sources.list.d/brave-browser-release.list'
     - curtin in-target --target=/target -- apt update
     - curtin in-target --target=/target -- apt install -y brave-browser
     - curtin in-target --target=/target -- python3 -m pip install --upgrade pip
