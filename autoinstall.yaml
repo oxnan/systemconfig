@@ -61,6 +61,7 @@ autoinstall:
     - eza
     - unzip
     - make
+    - papirus-icon-theme
   late-commands:
     - curtin in-target --target=/target -- apt update
     - curtin in-target --target=/target -- bash -c 'curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg'
@@ -75,8 +76,10 @@ autoinstall:
       - bash -c "git clone --depth 1 https://github.com/junegunn/fzf.git /opt/fzf"
       - bash -c "/opt/fzf/install --all"
       - bash -c 'export RUNZSH=no; export CHSH=no; su - user -c "sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\""'
-      - curl -L git.io/antigen > /home/user/antigen.zsh
+      - curl -L git.io/antigen > /home/user/.antigen.zsh
       - chsh -s /usr/bin/zsh user
       - bash -c 'su - user -c "curl -fsSL http://autoinstall.6l.dk/dotfiles -o /tmp/dotfiles.zip && unzip -o /tmp/dotfiles.zip -d /home/user/"'
       - python3 -m pip install --upgrade pip
       - python3 -m pip install --upgrade pwntools
+      - chmod +x /home/user/.config/bspwm/bspwmrc
+      - chmod +x /home/user/.config/polybar/launch.sh
