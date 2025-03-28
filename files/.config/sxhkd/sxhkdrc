@@ -1,0 +1,68 @@
+# make sxhkd reload its configuration files
+super + shift + e
+	pkill -USR1 -x sxhkd
+ 
+# quit or restart bspwm
+super + shift + {r,c}
+	bspc {quit,wm -r}
+ 
+# create a new terminal window
+super + Return
+	kitty
+ 
+# close or kill a window
+super + {_,shift + }q
+	bspc node -{k,c}
+ 
+# change the window state
+super + {t,ctrl + t,l,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# expand a window by moving one of its side outward
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+ 
+# focus or send a window to the given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# Launcher
+super + d
+	~/.config/rofi/launchers/type-1/launcher.sh
+
+# Kitty Scratchpad
+super + shift + space
+	tdrop -ma -x 10% -y 15% -w 80% -h 70% -n tscratch kitty --config ~/.config/kitty/scratchpad.conf
+
+# Ipython scratchpad
+super + shift + i
+	tdrop -ma -x 10% -y 15% -w 80% -h 70% -n iscratch kitty --config ~/.config/kitty/scratchpad.conf ipython
+
+# discord scratchpad (some day :( )
+super + shift + d
+    tdrop -ma -x 10% -y 15% -w 80% -h 70% -n ds --class=ds discord_scratch
+
+# Brightness shit
+XF86MonBrightnessUp
+	brightnessctl set 10%+
+
+XF86MonBrightnessDown
+	brightnessctl set 10%-
+
+super + {_,shift + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east}.local
+
+XF86AudioMute
+	amixer -D pulse set Master 1+ toggle
+XF86AudioRaiseVolume
+    amixer set Master -q 5%+ #increase sound volume
+XF86AudioLowerVolume
+    amixer set Master -q 5%- #decrease sound volume
+
+
+# show bar on key press
+Super_L
+    polybar-msg cmd show
+# hide bar on key release
+@Super_L
+    polybar-msg cmd hide

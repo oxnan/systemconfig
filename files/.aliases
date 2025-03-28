@@ -1,0 +1,17 @@
+### ALIAS SETUP ###
+alias lort='lsd -larht'
+alias ..='cd ..'
+alias ls='eza --icons'
+alias tree='eza -l --icons --tree'
+alias lah='eza -laSiUHg --icons'
+alias btop='bashtop'
+alias bat='bat --pager=never'
+alias egrep='rg --color=auto'
+alias diff='diff --color=auto'
+alias history='fc -lt "%F %T "'
+alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+alias ssh="kitty +kitten ssh"
+alias idot="dot -Efontsize=18 -Efontname=sans -Nfontname=sans -Tpng -Gbgcolor=black -Gcolor=white -Ecolor=white -Efontcolor=white -Ncolor=white -Nfontcolor=white | convert -trim -bordercolor black -border 20 -transparent black - - | viu -"
+alias f="pypy"
+alias v="python3"
+alias sl="eza -laSiUHg --icons"
