@@ -23,9 +23,7 @@ autoinstall:
     - git
     - curl
     - kitty
-    - conky
     - vim
-    - wget
     - rsync
     - python3-pip
     - openvpn
