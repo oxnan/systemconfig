@@ -13,7 +13,6 @@ autoinstall:
     realname: "User"
     hostname: machine
     username: user
-    password: '$y$j9T$dfB3gvSzWbywFLuEY15TV0$VBoOaUE.lle02VOJlI220NRprHMTQQEx2BhS2I5Wc31'
   snap:
     - name: discord
       classic: true
