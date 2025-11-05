@@ -13,6 +13,7 @@ autoinstall:
     realname: "User"
     hostname: machine
     username: user
+    password: '$1$n6uZnJxp$TXdEf6ExYE87itqYP5OO8/'
   snap:
     - name: discord
       classic: true
@@ -82,3 +83,4 @@ autoinstall:
       - python3 -m pip install --upgrade pwntools
       - chmod +x /home/user/.config/bspwm/bspwmrc
       - chmod +x /home/user/.config/polybar/launch.sh
+
